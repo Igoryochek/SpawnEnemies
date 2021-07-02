@@ -17,6 +17,11 @@ public class SpawnEnemy : MonoBehaviour
         StartCoroutine(InstantiateEnemy());
     }
 
+    private void Update()
+    {
+        StopInstantiate();
+    }
+
     private IEnumerator InstantiateEnemy()
     {
         while (_isNeedInstantiate)
@@ -27,6 +32,14 @@ public class SpawnEnemy : MonoBehaviour
             Vector2 enemyPosition = new Vector2(_positionX, _positionY);
             Instantiate(_enemieTemplates[randomEnemyIndex], enemyPosition, _enemieTemplates[randomEnemyIndex].transform.rotation);
             yield return new WaitForSeconds(2);
+        }
+    }
+
+    private void StopInstantiate()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            _isNeedInstantiate = false;
         }
     }
 }
