@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minimalPosition: {x: -11, y: -3}
   _maximalPosition: {x: 11, y: 4}
-  _enemieTemplates:
+  _enemyTemplates:
   - {fileID: 8171434933254611636, guid: 764fb993a914b6d499bbea3ccfa6d1cf, type: 3}
   - {fileID: 8171434933254611636, guid: 764fb993a914b6d499bbea3ccfa6d1cf, type: 3}
   - {fileID: 8171434933254611636, guid: 764fb993a914b6d499bbea3ccfa6d1cf, type: 3}
