@@ -8,13 +8,13 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private Vector2 _maximalPosition;
     [SerializeField] private GameObject[] _enemieTemplates;
 
-    private bool _isNeedInstantiate=true;
+    private Coroutine _instantiateEnemy;
     private float _positionX;
     private float _positionY;
-   
+
     private void Start()
     {
-        StartCoroutine(InstantiateEnemy());
+        _instantiateEnemy = StartCoroutine(InstantiateEnemy());
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class SpawnEnemy : MonoBehaviour
 
     private IEnumerator InstantiateEnemy()
     {
-        while (_isNeedInstantiate)
+        while (true)
         {
             int randomEnemyIndex = Random.Range(0, _enemieTemplates.Length);
             _positionX = Random.Range(_minimalPosition.x, _maximalPosition.x);
@@ -39,7 +39,7 @@ public class SpawnEnemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            _isNeedInstantiate = false;
+            StopCoroutine(_instantiateEnemy);
         }
     }
 }
